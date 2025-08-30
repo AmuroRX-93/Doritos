@@ -20,7 +20,7 @@ public class IntakeCommand extends Command {
     public void execute() {
         intake.setIntakeSpeed(0.6);
         shooter.setShooterOpenloop(0.2);
-        shooter.setTransitSpeed(0.2);
+        shooter.setTransitSpeed(-0.2);
     }
 
     @Override

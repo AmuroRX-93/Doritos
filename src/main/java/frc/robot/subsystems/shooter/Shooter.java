@@ -39,11 +39,13 @@ public class Shooter extends SubsystemBase{
         transit.setInverted(ShooterConstants.tansitInversed);
         upShooterVelocity = upShooter.getVelocity();
         lowShooterVelocity = lowShooter.getVelocity();
+        
 
         config = ShooterConstants.getConfigs();
 
         upShooter.getConfigurator().apply(config);
         lowShooter.getConfigurator().apply(config);
+        transit.getConfigurator().apply(config);
     }
 
     public void setShooterOpenloop(double percent) {
@@ -65,7 +67,7 @@ public class Shooter extends SubsystemBase{
     }
 
     public boolean isShooterAtSetpoint(){
-        return Util.epsilonEquals(upShooterSetpoint, upShooterVelocity.getValue().in(RotationsPerSecond), 5) && Util.epsilonEquals(lowShooterSetpoint, lowShooterVelocity.getValue().in(RotationsPerSecond), 5);
+        return Util.epsilonEquals(upShooterSetpoint, upShooterVelocity.getValue().in(RotationsPerSecond), 10) && Util.epsilonEquals(lowShooterSetpoint, lowShooterVelocity.getValue().in(RotationsPerSecond), 10);
       }
 
     @Override
